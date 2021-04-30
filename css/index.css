@@ -1,0 +1,23 @@
+#intro {
+    height: 300px !important;
+    background-image: url("/src/img/background.svg");
+}
+
+#intro .card {
+    background-color: transparent;
+    border: none;
+}
+
+#second .card {
+    max-width: 750px;
+    border: none;
+}
+
+#second .container {
+    max-width: 750px;
+}
+
+section {
+    display: flex;
+    min-height: 300px;
+}
