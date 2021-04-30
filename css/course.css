@@ -1,0 +1,19 @@
+.visible{
+    visibility: visible;
+}
+.invisible{
+    display: none;
+    visibility: hidden;
+}
+.tab-content .tab-pane{
+    min-height: 200px;
+}
+.nav-item .card{
+    border: none;
+}
+hr.solid {
+    border-top: 3px solid #bbb;
+  }
+iframe{
+    min-height: 240px;
+}
