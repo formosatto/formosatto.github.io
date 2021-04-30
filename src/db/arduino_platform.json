@@ -1,0 +1,136 @@
+{
+    "info":
+    {
+        "title": "我是課程介紹",
+        "contents": "介紹介紹"
+    },
+    "announcements":
+    [
+        {
+            "title": "測試公告",
+            "contents": "這是測試公告"
+        },
+        {
+            "title": "測試公告二",
+            "contents": "我有很多測試公告"
+        }
+    ],
+    "lessons":
+    [
+        {
+            "name": "OBC 與 C&DH:",
+            "sublessons": 
+            [
+                {
+                    "name": "認識立方衛星的OBC，了解On board Computer的基本工作，以及C&DH的基本概念"
+                }
+            ]
+            
+        },
+        {
+            "name": "飛行軟體架構",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹階層式飛行軟體架構，以NASA cFS為例"
+                }
+            ]
+        },
+        {
+            "name": "Introduction to Arduino RTOS",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹Free RTOS的基本架構，為什麼要有RTOS？跟一般的Arduino 有甚麼差異？"
+                }
+            ]
+        },
+        {
+            "name": "Interrupts",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹什麼式interrupts，認識HWI、SWI的差異與實作"
+                }
+            ]
+        },
+        {
+            "name": "Tasks",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹什麼式tasks?，飛行軟體功能的基本組成。"
+                },
+                {
+                    "name": "怎麼Schedule各個task的優先順序"
+                },
+                {
+                    "name": "並會開始架構最基本的任務管理與立方衛星軟體基礎架構"
+                }
+            ]
+        },
+        {
+            "name": "C&DH task: DATA Pool",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹如何在Task之間傳資料，怎麼樣才不會讓兩個Task同時接觸到一樣的記憶體位置"
+                },
+                {
+                    "name": "using semaphores and mailbox"
+                },
+                {
+                    "name": "並實作任務資料的管理系統"
+                }
+            ]
+        },
+        {
+            "name": "EPS task: GPIO",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹如何進行電源管理，簡介EPS次系統，任是什麼是Regulated bus與unregulated bus"
+                },
+                {
+                    "name": "並使用GPIO與繼電器實作電源管理系統"
+                }
+            ]
+        },
+        {
+            "name": "TT&C task: CCSDS & Hardware communication",
+            "sublessons": 
+            [
+                {
+                    "name": "介紹CMD/TLM Handler，認識CCSDS封包"
+                },
+                {
+                    "name": "介紹CMD/TLM Handler，認識CCSDS封包"
+                }
+            ]
+        },
+        {
+            "name": "EPS task - 2: MPPT",
+            "sublessons": 
+            [
+                {
+                    "name": "認識MPPT 與 DET的差異"
+                },
+                {
+                    "name": "在模擬環境實作簡易的Peak Power Tracking功能"
+                }
+            ]
+        },
+        {
+            "name": "ADCS task: bdot control",
+            "sublessons": 
+            [
+                {
+                    "name": "認識姿態控制次系統，介紹常用的Bdot control algorithm"
+                },
+                {
+                    "name": "配合Matlab實作Bdot控制器"
+                }
+            ]
+        }
+    ]
+}
