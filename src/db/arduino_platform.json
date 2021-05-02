@@ -15,22 +15,23 @@
             "contents": "我有很多測試公告"
         }
     ],
-    "test": "https://zh.surveymonkey.com/r/9SPPNBG",
     "lessons":
     [
         {
             "name": "OBC 與 CDH:",
             "video": "/src/videos/courses/arduino_platform/W1_OBC&CDH.mp4",
+            "test": "https://zh.surveymonkey.com/r/9SPPNBG",
             "sublessons": 
             [
                 {
                     "name": "認識立方衛星的OBC，了解On board Computer的基本工作，以及C&DH的基本概念"
                 }
             ]
-            
         },
         {
             "name": "飛行軟體架構",
+            "video": "/src/videos/courses/arduino_platform/W2_FSW.mp4",
+            "test": "https://zh.surveymonkey.com/r/93NXZ8S",
             "sublessons": 
             [
                 {

@@ -95,8 +95,7 @@
         finish_load();
         load();
     })
-    .catch(err => console.log(err));
-    // .catch(err => window.location.replace("/index.html"));
+    .catch(err => window.location.replace("/404.html"));
 
     function load(data){
 
@@ -105,7 +104,7 @@
         createCourseList(courseData['lessons']);
         // createCourseQandA();
         createCourseAnnouncements(courseData['announcements']);
-        createTest(courseData['test']);
+        createTest(queryDict['lesson'] || 0);
 
     }
 
@@ -128,21 +127,28 @@
         lessonVideo.innerHTML = mediaFrame;
     }
 
-    function createTest(test){
+    function createTest(lessonIndex){
 
         let courseTest = document.getElementById("CourseTest");
 
-        console.log(test);
+        test = courseData['lessons'][lessonIndex]['test'] || "/src/img/not_filmed.png";
 
-        testFrame = `
+        if (test != "/src/img/not_filmed.png"){
+            testFrame = `
             <iframe class="w-100" src="${test}" title="Test" style="min-height: 500px;"></iframe>
-        `;
+            `;
+        }else{
+            testFrame = `
+                <img src="${media}" class="img-fluid">
+            `
+        }
 
         courseTest.innerHTML = testFrame;
     }
 
     function courseSelect(index){
         createVideo(index);
+        createTest(index);
     }
     
 </script>
