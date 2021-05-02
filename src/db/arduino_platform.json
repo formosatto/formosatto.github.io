@@ -19,7 +19,7 @@
     [
         {
             "name": "OBC 與 CDH:",
-            "video": "/src/videos/courses/arduino_platform/W1_OBC&CDH.mp4",
+            "video": "https://www.youtube.com/embed/xj_HsWNWpIw",
             "test": "https://zh.surveymonkey.com/r/9SPPNBG",
             "sublessons": 
             [
@@ -30,7 +30,7 @@
         },
         {
             "name": "飛行軟體架構",
-            "video": "/src/videos/courses/arduino_platform/W2_FSW.mp4",
+            "video": "https://www.youtube.com/embed/7t59Yo30LFw",
             "test": "https://zh.surveymonkey.com/r/93NXZ8S",
             "sublessons": 
             [
