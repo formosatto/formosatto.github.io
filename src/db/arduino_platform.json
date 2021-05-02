@@ -1,8 +1,8 @@
 {
     "info":
     {
-        "title": "我是課程介紹",
-        "contents": "介紹介紹"
+        "title": "課程介紹",
+        "contents": "<h5>在這堂課裡頭，會帶你快速的認識立方衛星的OBC和CDH，並一步步的實作出一個架構在Arduino RTOS上的立方衛星軟體平台</h5><ol class='list-group list-group-flush'><br><h5 class='fw-bold en'>Goals</h5> <li class='list-group-item fs-5'>1. 對立方衛星的OBC跟CDH有基本的了解</li><li class='list-group-item fs-5'>2. 認識Arduino RTOS</li><li class='list-group-item fs-5'>3. 實作一套簡易的立方衛星飛行軟體</li></ol>"
     },
     "announcements":
     [
@@ -15,10 +15,12 @@
             "contents": "我有很多測試公告"
         }
     ],
+    "test": "https://zh.surveymonkey.com/r/9SPPNBG",
     "lessons":
     [
         {
-            "name": "OBC 與 C&DH:",
+            "name": "OBC 與 CDH:",
+            "video": "/src/videos/courses/arduino_platform/W1_OBC&CDH.mp4",
             "sublessons": 
             [
                 {
@@ -70,7 +72,7 @@
             ]
         },
         {
-            "name": "C&DH task: DATA Pool",
+            "name": "CDH task: DATA Pool",
             "sublessons": 
             [
                 {
@@ -97,7 +99,7 @@
             ]
         },
         {
-            "name": "TT&C task: CCSDS & Hardware communication",
+            "name": "TTC task: CCSDS and Hardware communication",
             "sublessons": 
             [
                 {

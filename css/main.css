@@ -11,10 +11,25 @@ a, a:hover, a:visited, a:active {
     text-decoration: none;
 }
 
+.loading{
+    width: 250px;
+    height: 250px;
+}
+
 .btn {
     background-color: #55BCA6;
 }
 
 input {
     border-radius: 30px !important;
+}
+
+.collapse {
+    background-color: white;
+}
+
+@media (min-width: 992px) {
+    .collapse{
+        background-color: #f8f9fa;
+    }
 }
