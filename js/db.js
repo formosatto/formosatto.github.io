@@ -13,7 +13,7 @@ class DB {
     async query() {
         try{
             const response = await fetch(this.url);
-            await wait(1000);
+            await wait(2480);
             const json = await response.json();
             return json;
         }catch (err) {

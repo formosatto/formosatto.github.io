@@ -1,11 +1,25 @@
 #intro {
     height: 300px !important;
     background-image: url("/src/img/background.svg");
+    background-repeat: repeat-x;
+    background-size: auto 300px;
 }
 
 #intro .card {
     background-color: transparent;
     border: none;
+}
+
+#intro #info {
+    letter-spacing:3px;
+}
+
+#intro .fs-5{
+    background-color: #55bca6;
+}
+
+h2 {
+    font-family: 'Noto Serif TC', serif;
 }
 
 #second .card {
@@ -16,6 +30,27 @@
 #second .container {
     max-width: 750px;
 }
+
+#second #info h5 {
+    color: #D9483B;
+}
+
+.quotation {
+    color: #D9483B;
+}
+
+/* #second #left-quotation {
+    color: #D9483B;
+    top: 0px;
+    left: -20px;
+}
+
+#second #right-quotation {
+    color: #D9483B;
+    bottom: 25px;
+    right: -25px;
+} */
+
 
 section {
     display: flex;

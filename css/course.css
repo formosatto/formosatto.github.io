@@ -8,12 +8,18 @@
 .tab-content .tab-pane{
     min-height: 200px;
 }
+.nav-tabs{
+    min-width: 100%;
+}
 .nav-item .card{
     border: none;
 }
-hr.solid {
+.nav .nav-item{
+    width: 100px;
+}
+hr.solid{
     border-top: 3px solid #bbb;
-  }
-iframe{
-    min-height: 240px;
+}
+.accordion-collapse{
+    background-color: white;
 }

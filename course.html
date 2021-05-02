@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+    <div w3-include-html="/src/includes/head.html"></div>
+    <link rel="stylesheet" href="/css/course.css">
+    <title>Ardunio Base Platform</title>
+</head>
+<html lang="zh">
+    <!-- Header -->
+	<div w3-include-html="/src/includes/navBar.html"></div>
+
+    <!-- Main Body-->
+    <body>
+        <div class="min-vh-100">
+            <div id="load" class="visible min-vh-100" w3-include-html="/src/includes/loading.html"></div>
+            <div id="main" class="invisible">
+                <div class="contatiner">
+                    <div class="row p-3">
+                        <div class="col-md-8">
+                            <div class="ratio ratio-16x9" id="lessonVideo"></div>
+                        </div>
+                        <div class="col-md-4 d-none d-md-flex overflow-auto">
+                            <div class="ratio ratio-8x9 bg-light h-100">
+                                <div id="CourseList"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-5">
+                        <div class="tab overflow-auto" style="max-width: 75vw;">
+                            <ul class="nav nav-tabs mb-3 d-inline-flex flex-nowrap" id="nav-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="nav-info-tab" data-bs-toggle="tab" data-bs-target="#nav-info" type="button" role="tab" aria-controls="nav-info" aria-selected="true">課程介紹</button>
+                                </li>
+                                <li class="nav-item d-md-none" role="presentation">
+                                    <button class="nav-link" id="nav-courseList-tab" data-bs-toggle="tab" data-bs-target="#nav-courseList" type="button" role="tab" aria-controls="nav-courseList" aria-selected="false">課程資料</button>
+                                </li>
+                                <li class="" role="presentation">
+                                <button class="nav-link" id="nav-QandA-tab" data-bs-toggle="tab" data-bs-target="#nav-QandA" type="button" role="tab" aria-controls="nav-QandA" aria-selected="false">Q&A</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="nav-announcement-tab" data-bs-toggle="tab" data-bs-target="#nav-announcement" type="button" role="tab" aria-controls="nav-announcement" aria-selected="false">課程公告</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="nav-announcement-tab" data-bs-toggle="tab" data-bs-target="#nav-test" type="button" role="tab" aria-controls="nav-test" aria-selected="false">測驗系統</button>
+                                </li>
+                            </ul>                            
+                        </div>
+
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
+                                <div class="nav-item" id="CourseInfo"></div>
+                            </div>
+                            <div class="tab-pane fade d-md-none" id="nav-courseList" role="tabpanel" aria-labelledby="nav-courseList-tab">
+                                <div class="nav-item" id="CourseList-Tab"></div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-QandA" role="tabpanel" aria-labelledby="nav-QandA-tab">
+                                <div class="nav-item m-auto" id="CourseQandA">
+                                    <h2 class="en fw-bold">Not Implemented Yet</h2>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-announcement" role="tabpanel" aria-labelledby="nav-announcement-tab">
+                                <div class="nav-item" id="CourseAnnouncement"></div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-test" role="tabpanel" aria-labelledby="nav-test-tab">
+                                <div class="nav-item" id="CourseTest"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <!-- Footer -->
+    <div w3-include-html="/src/includes/footer.html"></div>
+
+</html>
+<script src="/js/db.js"></script>
+<script src="/js/course.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script>
+
+    w3.includeHTML();
+
+    var queryDict = {}
+    location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
+    console.log(queryDict);
+    var courseData;
+    
+    let db = new DB(queryDict['course']);
+    let res = '';
+    res = db.query()
+    .then(response => {
+        courseData = response;
+        finish_load();
+        load();
+    })
+    .catch(err => window.location.replace("/404.html"));
+
+    function load(data){
+
+        createVideo(queryDict['lesson'] || 0);
+        createCourseInfo(courseData['info']);
+        createCourseList(courseData['lessons']);
+        // createCourseQandA();
+        createCourseAnnouncements(courseData['announcements']);
+        createTest(queryDict['lesson'] || 0);
+
+    }
+
+    function createVideo(lessonIndex){
+
+        media = courseData['lessons'][lessonIndex]['video'] || "/src/img/not_filmed.png";
+
+        lessonVideo = document.getElementById("lessonVideo");
+
+        if (media != "/src/img/not_filmed.png"){
+            mediaFrame = `
+                <iframe src="${media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `;
+        }else{
+            mediaFrame = `
+                <img src="${media}" class="img-fluid">
+            `
+        }
+        
+        lessonVideo.innerHTML = mediaFrame;
+    }
+
+    function createTest(lessonIndex){
+
+        let courseTest = document.getElementById("CourseTest");
+
+        test = courseData['lessons'][lessonIndex]['test'] || "/src/img/not_filmed.png";
+
+        if (test != "/src/img/not_filmed.png"){
+            testFrame = `
+            <iframe class="w-100" src="${test}" title="Test" style="min-height: 500px;"></iframe>
+            `;
+        }else{
+            testFrame = `
+                <img src="${media}" class="img-fluid">
+            `
+        }
+
+        courseTest.innerHTML = testFrame;
+    }
+
+    function courseSelect(index){
+        createVideo(index);
+        createTest(index);
+    }
+    
+</script>
