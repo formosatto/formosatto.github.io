@@ -94,7 +94,7 @@
 	w3.includeHTML();
 
     // get most popular
-    api = new API('posts/most_popular');
+    api = new API('courses/most_popular');
     api.request()
     .then(response => {
         showCourseList(response);

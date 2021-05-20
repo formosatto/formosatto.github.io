@@ -43,7 +43,7 @@
 
 	w3.includeHTML();
 
-    courses = new API('posts/');
+    courses = new API('courses/');
     courses.request()
     .then(response => {
         showCourseList(response);
