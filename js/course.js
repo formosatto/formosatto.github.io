@@ -106,3 +106,42 @@ function createCourseQandA(){
     
     `;
 }
+
+function createVideo(lessonIndex){
+
+    media = courseData['lessons'][lessonIndex]['video'] || "/src/img/not_filmed.png";
+
+    lessonVideo = document.getElementById("lessonVideo");
+
+    if (media != "/src/img/not_filmed.png"){
+        mediaFrame = `
+            <iframe src="${media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        `;
+    }else{
+        mediaFrame = `
+            <img src="${media}" class="img-fluid">
+        `
+    }
+    
+    lessonVideo.innerHTML = mediaFrame;
+}
+
+
+function createTest(lessonIndex){
+
+    let courseTest = document.getElementById("CourseTest");
+
+    test = courseData['lessons'][lessonIndex]['test'] || "/src/img/not_filmed.png";
+
+    if (test != "/src/img/not_filmed.png"){
+        testFrame = `
+        <iframe class="w-100 h-100" src="${test}" title="Test" style="min-height: 500px;"></iframe>
+        `;
+    }else{
+        testFrame = `
+            <img src="${media}" class="img-fluid">
+        `
+    }
+
+    courseTest.innerHTML = testFrame;
+}
