@@ -14,12 +14,12 @@
             <div id="load" class="visible min-vh-100" w3-include-html="/src/includes/loading.html"></div>
             <div id="main" class="invisible">
                 <div class="contatiner">
-                    <div class="row p-3">
+                    <div class="row g-2 p-3">
                         <div class="col-md-8">
                             <div class="ratio ratio-16x9" id="lessonVideo"></div>
                         </div>
-                        <div class="col-md-4 d-none d-md-flex overflow-auto">
-                            <div class="ratio ratio-8x9 bg-light h-100">
+                        <div class="col-md-4 d-none d-md-flex overflow-auto bg-light">
+                            <div class="ratio ratio-8x9">
                                 <div id="CourseList"></div>
                             </div>
                         </div>
@@ -106,44 +106,6 @@
         createCourseAnnouncements(courseData['announcements']);
         createTest(queryDict['lesson'] || 0);
 
-    }
-
-    function createVideo(lessonIndex){
-
-        media = courseData['lessons'][lessonIndex]['video'] || "/src/img/not_filmed.png";
-
-        lessonVideo = document.getElementById("lessonVideo");
-
-        if (media != "/src/img/not_filmed.png"){
-            mediaFrame = `
-                <iframe src="${media}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            `;
-        }else{
-            mediaFrame = `
-                <img src="${media}" class="img-fluid">
-            `
-        }
-        
-        lessonVideo.innerHTML = mediaFrame;
-    }
-
-    function createTest(lessonIndex){
-
-        let courseTest = document.getElementById("CourseTest");
-
-        test = courseData['lessons'][lessonIndex]['test'] || "/src/img/not_filmed.png";
-
-        if (test != "/src/img/not_filmed.png"){
-            testFrame = `
-            <iframe class="w-100" src="${test}" title="Test" style="min-height: 500px;"></iframe>
-            `;
-        }else{
-            testFrame = `
-                <img src="${media}" class="img-fluid">
-            `
-        }
-
-        courseTest.innerHTML = testFrame;
     }
 
     function courseSelect(index){
