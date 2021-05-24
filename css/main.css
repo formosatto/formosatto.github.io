@@ -2,6 +2,10 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+main {
+    min-height: 90vh;
+}
+
 .en {
     font-family: 'Antonio', sans-serif;
 }
