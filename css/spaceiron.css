@@ -73,6 +73,12 @@ ul{
 .media{
     display: none !important;
 }
+.card-title{
+    width: calc(100% - 15px);
+}
+.card-body{
+    width: calc(80vw/3);
+}
 
 #personal-leaderboard{
     grid-area: person-leader;
@@ -261,6 +267,10 @@ ul{
 
     .search-input {
         width: 180px;
+    }
+
+    .card-body{
+        width: 100%;
     }
 
     #sidebar {

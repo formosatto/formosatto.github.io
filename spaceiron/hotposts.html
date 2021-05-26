@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+    <head>
+        <link rel="stylesheet" href="/css/index.css">
+        <link rel="stylesheet" href="/css/spaceiron.css">
+        <title>Posts</title>
+    </head>
+<body>
+    <span w3-include-html="/src/includes/head.html"></span>
+        
+    <!-- Navbar -->
+    <div w3-include-html="/src/includes/navBar.html"></div>
+
+    <div class="min-vh-100">
+
+        <div id="load" class="visible min-vh-100" w3-include-html="/src/includes/loading.html"></div>
+    
+        <div id="main" class="invisible">
+            <div class="iron-body" id="iron-body">
+                <!-- Sidebar -->
+                <section w3-include-html="/src/includes/iron_sideBar.html" id="sidebar" class="sidebar-close"></section>
+            
+        
+                <!-- Main  -->
+                <main class="d-inline-block">
+        
+                    <!-- Title -->
+                    <h2 class="title fw-bold m-auto p-5">
+                        <img src="../src/img/icons/lightning.png" alt="lightning icon">
+                        發燒文章
+                    </h2>
+        
+                    <div class="row g-3" id="post">
+                        
+                    </div>
+        
+        
+                </main>
+        
+            </div>
+        </div>
+
+    </div>
+    
+
+    <!-- Footer -->
+    <footer w3-include-html="/src/includes/footer.html"></footer>
+</body>
+</html>
+<script src="/js/conn.js"></script>
+<script src="/js/sidebar.js"></script>
+<script src="/js/course.js"></script>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+
+	w3.includeHTML();
+    load_sidebar();
+
+    conn('https://formosatto.herokuapp.com/posts/?skip=0&limit=10')
+    .then(data => {
+        finish_load();
+        load(data);
+    })
+
+    function load(data){
+        const row = document.getElementById('post');
+        
+        data.forEach( e => {
+            let card = document.createElement('div')
+            card.classList.add("col-sm-12");
+            card.classList.add("col-lg-4");
+
+            let content = '';
+            if (e['content'].length > 100){
+                content = e['content'].slice(0,100);
+                content += ' . . . . . .';
+            }else{
+                content = e['content'];
+            }
+
+            card.innerHTML = `
+                <div class="card h-100">
+                    <div class="card-body h-100"">
+                        <h5 class="card-title border-bottom p-2">${e['title']}</h5>
+                        <p class="card-text" style="height: 80px;">${content}</p>
+                        <a href="/spaceiron/posts?id=${e['id']}" class="card-link text-primary">Read more</a>
+                    </div>
+                    <div class="card-footer">
+                        <i class="fa fa-clock-o"></i>
+                        ${e['post_time'].slice(0,10)}
+                    </div>
+                </div>
+            `
+            row.appendChild(card);
+        });
+    }
+    
+    load(fake_db);
+
+</script>
