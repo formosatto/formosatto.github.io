@@ -6,7 +6,7 @@
 </head>
 <html lang="zh">
     <!-- Header -->
-	<div w3-include-html="src/includes/navBar.html"></div>
+	<div w3-include-html="/src/includes/navBar.html"></div>
 
     <body class="d-flex flex-column">
 
@@ -75,13 +75,13 @@
 		</section>
 				
 		<section>
-            <div w3-include-html="src/includes/contact.html" class="mx-auto m-5 vw-100 pb-5"></div>
+            <div w3-include-html="/src/includes/contact.html" class="mx-auto m-5 vw-100 pb-5"></div>
         </section>
 
     </body>
 
     <!-- Footer -->
-    <footer w3-include-html="src/includes/footer.html"></footer>
+    <footer w3-include-html="/src/includes/footer.html"></footer>
 
 </html>
 
@@ -90,6 +90,6 @@
 <script src="/js/db.js"></script>
 <script>
 
-	console.log(w3.includeHTML());
+	w3.includeHTML();
 
 </script>
