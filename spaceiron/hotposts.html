@@ -1,66 +1,72 @@
 <!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/font/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/spaceiron.css">
+    <title>Posts</title>
+</head>
 <html lang="zh-tw">
-    <head>
-        <link rel="stylesheet" href="/css/index.css">
-        <link rel="stylesheet" href="/css/spaceiron.css">
-        <title>Posts</title>
-    </head>
 <body>
-    <span w3-include-html="/src/includes/head.html"></span>
+
+    <div id="load" w3-include-html="/src/includes/loading.html"></div>
+    <div class="invisible" id="body">
         
-    <!-- Navbar -->
-    <div w3-include-html="/src/includes/navBar.html"></div>
+        <!-- Navbar -->
+        <div w3-include-html="/src/includes/navBar.html"></div>
 
-    <div class="min-vh-100">
+        <div class="iron-body" id="iron-body">
 
-        <div id="load" class="visible min-vh-100" w3-include-html="/src/includes/loading.html"></div>
+            <!-- Sidebar -->
+            <section w3-include-html="/src/includes/iron_sidebar.html" id="sidebar" class="sidebar-close"></section>
+        
     
-        <div id="main" class="invisible">
-            <div class="iron-body" id="iron-body">
-                <!-- Sidebar -->
-                <section w3-include-html="/src/includes/iron_sidebar.html" id="sidebar" class="sidebar-close"></section>
-            
-        
-                <!-- Main  -->
-                <main class="d-inline-block">
-        
-                    <!-- Title -->
-                    <h2 class="title fw-bold m-auto p-5">
-                        <img src="../src/img/icons/lightning.png" alt="lightning icon">
-                        發燒文章
-                    </h2>
-        
-                    <div class="row g-3" id="post">
-                        
-                    </div>
-        
-        
-                </main>
-        
-            </div>
+            <!-- Main  -->
+            <main class="d-block">
+    
+                <!-- Title -->
+                <h2 class="fw-bold m-5">
+                    <img src="../src/img/icons/lightning.png" alt="lightning icon">
+                    發燒文章
+                </h2>
+    
+                <div class="row g-3 justify-content-center" id="post"> </div>
+            </main>
+    
+    
+    
         </div>
 
-    </div>
-    
+        <!-- Footer -->
+        <footer w3-include-html="/src/includes/footer.html"></footer>
 
-    <!-- Footer -->
-    <footer w3-include-html="/src/includes/footer.html"></footer>
+    </div>
+
 </body>
 </html>
-<script src="/js/conn.js"></script>
-<script src="/js/sidebar.js"></script>
-<script src="/js/course.js"></script>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/showMethods.js"></script>
+<script src="/js/sidebar.js"></script>
 <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
 <script>
 
-	w3.includeHTML();
-    load_sidebar();
+    
+    new Load(() => {
 
-    conn('https://formosatto.herokuapp.com/posts/?skip=0&limit=10')
-    .then(data => {
-        finish_load();
-        load(data);
+        conn('/posts/?skip=0&limit=10')
+        .then(res => {
+            load_sidebar();
+            load(res.data);
+        })
+
     })
 
     function load(data){
@@ -68,8 +74,7 @@
         
         data.forEach( e => {
             let card = document.createElement('div')
-            card.classList.add("col-sm-12");
-            card.classList.add("col-lg-4");
+            card.classList.add("col-auto");
 
             let content = '';
             if (e['content'].length > 100){
