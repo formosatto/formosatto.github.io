@@ -1,143 +1,162 @@
 <!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/spaceiron.css">
+    <title>Space Iron</title>
+</head>
 <html lang="zh-tw">
-    <head>
-        <link rel="stylesheet" href="/css/spaceiron.css">
-        <title>Space Iron</title>
-    </head>
 <body>
-    <span w3-include-html="/src/includes/head.html"></span>
+
+    <div id="load" w3-include-html="/src/includes/loading.html"></div>
+
+    <div id="body" class="invisible">
+
+        <!-- Navbar -->
+        <div w3-include-html="/src/includes/navBar.html"></div>
+    
+        <div class="iron-body" id="iron-body">
+            <!-- Sidebar -->
+            <section w3-include-html="/src/includes/iron_sideBar.html" id="sidebar" class="sidebar-close"></section>
         
-    <!-- Navbar -->
-    <div w3-include-html="/src/includes/navBar.html"></div>
+            <!-- Main  -->
+            <main>
+        
+                <div class="box" id="personal-leaderboard">
+                    <a href="#">
+                        <h1 class="title leader">2021 <br> 個人組排行榜</h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="group-leaderboard">
+                    <a href="#">
+                        <h1 class="title leader">2021 <br> 團體組排行榜</h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="spotlight">
+                    <a href="#">
+                        <h1 class="title computer">
+                            <span class="subtitle">
+                                焦 <br>
+                                點 <br>
+                            </span>
+                            <br>
+                            SPOT <br>
+                            LIGHT <br>
+                        </h1>
+                        <h1 class="title media">
+                            焦點關注 
+                            <span class="subtitle">
+                                Spotlight
+                            </span>
+                        </h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="recommend">
+                    <a href="#">
+                        <h1 class="title computer">
+                            R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;福        <br>
+                            E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;衛    <br>
+                            C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;子        <br>
+                            O               <br>
+                            MMEND           <br>
+                        </h1>
+                        <h1 class="title media">
+                            福衛子推薦閱讀
+                            <span class="subtitle">
+                                Recommended
+                            </span>
+                        </h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="latest-collections">
+                    <a href="./posts.html">
+                        <h1 class="title computer">
+                            <span class="subtitle">
+                            文  <br>
+                            章  <br>
+                            集  <br>
+                            錦  <br>
+                            </span>
+                            2021
+                        </h1>
+                        <h1 class="title media">
+                            2021 文章集錦
+                            <span class="subtitle">
+                                Trending Now!
+                            </span>
+                        </h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="sublatest-collections">
+                    <a href="#">
+                        <h1 class="title computer">
+                            <span class="subtitle">
+                            文  <br>
+                            章  <br>
+                            集  <br>
+                            錦  <br>
+                            </span>
+                            2020 
+                        </h1>
+                        <h1 class="title media">
+                            2020 文章集錦
+                            <span class="subtitle">
+                                Trending Now!
+                            </span>
+                        </h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="trending">
+                    <a href="#">
+                        <h1 class="title">
+                            Trending & Hot
+                            <span class="subtitle">Don’t miss out the trend</span>
+                        </h1>
+                    </a>
+                </div>
+        
+                <div class="box" id="latest">
+                    <a href="#">
+                        <h1 class="title">
+                            最新發佈
+                            <span class="subtitle">Read before anyone else!</span>
+                        </h1>
+                    </a>
+                </div>
+    
+            </main>
+        </div>
+    
+        <!-- Footer -->
+        <footer w3-include-html="/src/includes/footer.html"></footer>
 
-    <div class="iron-body" id="iron-body">
-        <!-- Sidebar -->
-        <section w3-include-html="/src/includes/iron_sideBar.html" id="sidebar" class="sidebar-close"></section>
-    
-        <!-- Main  -->
-        <main>
-    
-            <div class="box" id="personal-leaderboard">
-                <a href="#">
-                    <h1 class="title leader">2021 <br> 個人組排行榜</h1>
-                </a>
-            </div>
-    
-            <div class="box" id="group-leaderboard">
-                <a href="#">
-                    <h1 class="title leader">2021 <br> 團體組排行榜</h1>
-                </a>
-            </div>
-    
-            <div class="box" id="spotlight">
-                <a href="#">
-                    <h1 class="title computer">
-                        <span class="subtitle">
-                            焦 <br>
-                            點 <br>
-                        </span>
-                        <br>
-                        SPOT <br>
-                        LIGHT <br>
-                    </h1>
-                    <h1 class="title media">
-                        焦點關注 
-                        <span class="subtitle">
-                            Spotlight
-                        </span>
-                    </h1>
-                </a>
-            </div>
-    
-            <div class="box" id="recommend">
-                <a href="#">
-                    <h1 class="title computer">
-                        R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;福        <br>
-                        E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;衛    <br>
-                        C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;子        <br>
-                        O               <br>
-                        MMEND           <br>
-                    </h1>
-                    <h1 class="title media">
-                        福衛子推薦閱讀
-                        <span class="subtitle">
-                            Recommended
-                        </span>
-                    </h1>
-                </a>
-            </div>
-    
-            <div class="box" id="latest-collections">
-                <a href="./posts.html">
-                    <h1 class="title computer">
-                        <span class="subtitle">
-                        文  <br>
-                        章  <br>
-                        集  <br>
-                        錦  <br>
-                        </span>
-                        2021
-                    </h1>
-                    <h1 class="title media">
-                        2021 文章集錦
-                        <span class="subtitle">
-                            Trending Now!
-                        </span>
-                    </h1>
-                </a>
-            </div>
-    
-            <div class="box" id="sublatest-collections">
-                <a href="#">
-                    <h1 class="title computer">
-                        <span class="subtitle">
-                        文  <br>
-                        章  <br>
-                        集  <br>
-                        錦  <br>
-                        </span>
-                        2020 
-                    </h1>
-                    <h1 class="title media">
-                        2020 文章集錦
-                        <span class="subtitle">
-                            Trending Now!
-                        </span>
-                    </h1>
-                </a>
-            </div>
-    
-            <div class="box" id="trending">
-                <a href="#">
-                    <h1 class="title">
-                        Trending & Hot
-                        <span class="subtitle">Don’t miss out the trend</span>
-                    </h1>
-                </a>
-            </div>
-    
-            <div class="box" id="latest">
-                <a href="#">
-                    <h1 class="title">
-                        最新發佈
-                        <span class="subtitle">Read before anyone else!</span>
-                    </h1>
-                </a>
-            </div>
-
-        </main>
     </div>
 
-    <!-- Footer -->
-    <footer w3-include-html="/src/includes/footer.html"></footer>
 </body>
 </html>
-<script src="/js/sidebar.js"></script>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/showMethods.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/sidebar.js"></script>
 <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
 <script>
 
-	w3.includeHTML();
-    load_sidebar();
+    new Load(() => {
+        load_sidebar();
+    })
 
 </script>

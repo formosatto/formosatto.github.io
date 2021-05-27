@@ -1,4 +1,3 @@
-
 function showCourseList(courseList) {
     let target = document.getElementById("course-list-div");
 
@@ -92,4 +91,27 @@ function showCourseList(courseList) {
         ${popularCourses}
     </div>
     `;
+}
+
+function popMsg(msg){
+
+    const toastContainer = document.getElementById('toast');
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.setAttribute('data-bs-autohide', 'false');
+
+    toast.innerHTML = `
+    <div class="toast-header">
+        <img src="/src/img/icon.svg" class="rounded me-2" width="25px" height="25px" alt="logo">
+        <strong class="me-auto">提示</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+    </div>
+    <div class="toast-body">
+        ${msg}
+    </div>
+    `;
+
+    toastContainer.appendChild(toast);
+    
+    new bootstrap.Toast(toast).show()
 }

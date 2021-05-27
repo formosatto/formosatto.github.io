@@ -1,17 +1,3 @@
-function finish_load(){
-
-    let load = document.getElementById("load");
-    let main = document.getElementById("main");
-
-    load.classList.add("invisible");
-    load.classList.remove("visible");
-
-    main.classList.add("visible");
-    main.classList.remove("invisible");
-    
-}
-
-
 function createCourseList(lessons){
 
     let courseList = document.getElementById("CourseList");

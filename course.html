@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <head>
-    <div w3-include-html="/src/includes/head.html"></div>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/font/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" href="/css/main.css">
     <title>Ardunio Base Platform</title>
 </head>
-<html lang="zh">
-    <!-- Header -->
-	<div w3-include-html="/src/includes/navBar.html"></div>
+<html lang="zh-tw">
 
-    <!-- Main Body-->
     <body>
-        <div class="min-vh-100">
-            <div id="load" class="visible min-vh-100" w3-include-html="/src/includes/loading.html"></div>
-            <div id="main" class="invisible">
+
+        <div id="load" w3-include-html="/src/includes/loading.html"></div>
+        <div id="body" class="invisible">
+
+            <!-- Header -->
+            <div w3-include-html="/src/includes/navBar.html"></div>
+    
+            <!-- Main Body-->
+            <main>
                 <div class="contatiner">
                     <div class="row g-2 p-3">
                         <div class="col-md-8">
@@ -66,36 +77,44 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
+            
+            <!-- Footer -->
+            <div w3-include-html="/src/includes/footer.html"></div>
+
         </div>
+
     </body>
-
-    <!-- Footer -->
-    <div w3-include-html="/src/includes/footer.html"></div>
-
+        
 </html>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/showMethods.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
 <script src="/js/db.js"></script>
 <script src="/js/course.js"></script>
 <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="https://www.w3schools.com/lib/w3.js"></script>
 <script>
-
-    w3.includeHTML();
 
     var queryDict = {}
     location.search.substr(1).split("&").forEach(function(item) {queryDict[item.split("=")[0]] = item.split("=")[1]})
     console.log(queryDict);
     var courseData;
     
-    let db = new DB(queryDict['course']);
-    let res = '';
-    res = db.query()
-    .then(response => {
-        courseData = response;
-        finish_load();
-        load();
-    })
-    .catch(err => window.location.replace("/404.html"));
+    new Load(() => {
+
+        let db = new DB(queryDict['course']);
+        let res = '';
+        res = db.query()
+        .then(response => {
+            courseData = response;
+            load();
+        })
+        .catch(err => window.location.replace("/404.html"));
+
+        document.timeline = queryDict['course'];
+    });
+
 
     function load(data){
 

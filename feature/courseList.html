@@ -3,7 +3,7 @@
 	<div w3-include-html="/src/includes/head.html"></div>
 	<title>課程列表</title>
 </head>
-<html>
+<html lang="zh-tw">
     <!-- Header -->
 	<div w3-include-html="/src/includes/navBar.html"></div>
 
@@ -36,16 +36,15 @@
 </html>
 
 <script src="https://www.w3schools.com/lib/w3.js"></script>
-<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
 <script src="/js/showMethods.js"></script>
-<script src="/js/db.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
 <script>
 
-	w3.includeHTML();
+	conn('https://formosatto.herokuapp.com/courses/')
+	.then( res => {
+		showCourseList(res.data);
+	})
 
-    courses = new API('courses/');
-    courses.request()
-    .then(response => {
-        showCourseList(response);
-    });
 </script>

@@ -21,15 +21,6 @@
 h2 {
     font-family: 'Noto Serif TC', serif;
 }
-
-.visible{
-    visibility: visible;
-}
-.invisible{
-    display: none;
-    visibility: hidden;
-}
-
 #second .card {
     max-width: 750px;
     border: none;

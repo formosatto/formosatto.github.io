@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-tw">
 
     <head>
-        <!-- Header -->
-        <div w3-include-html="/src/includes/head.html"></div>
+        <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/main.css">
         <title>404 Not Found</title>
     </head>
 
-    <body>        
-        <!-- Nav Bar -->
-        <div w3-include-html="/src/includes/navBar.html"></div>
+    <body>
         
-        <main>
-            <img class="img-fluid" src="/src/img/404.png" alt="404 Picture">
+        <main class="d-flex flex-column justify-content-center vh-100">
+            <div class="container">
+                <img class="img-fluid" src="/src/img/404.png" alt="404 Picture">
+            </div>
+            <div class="container">
+                <h1 class="text-center fw-bold en text-danger">
+                    Page Not Found
+                </h1>
+                <h3 class="text-center text-primary">
+                    <a href="javascript:history.back()">Return to previous page</a>
+                </h3>
+            </div>
         </main>
 
-        <!-- Footer -->
-        <footer w3-include-html="/src/includes/footer.html"></footer>
     </body>
 </html>
-
-<script src="https://www.w3schools.com/lib/w3.js"></script>
-<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
-<script>
-
-	console.log(w3.includeHTML());
-
-</script>
