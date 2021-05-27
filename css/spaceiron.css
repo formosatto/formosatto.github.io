@@ -82,7 +82,7 @@ input[type=text]{
     width: calc(100% - 15px);
 }
 .card-body{
-    width: calc(80vw/3);
+    width: calc(70vw/3);
 }
 
 #personal-leaderboard{
@@ -275,7 +275,7 @@ input[type=text]{
     }
 
     .card-body{
-        width: 100%;
+        width: 80vw;
     }
 
     #sidebar {
