@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/font/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css">
+	<title>Login</title>
+</head>
+<html lang="zh-tw">
+    <body>
+    
+	    <div id="load" w3-include-html="/src/includes/loading.html"></div>
+	    <div id="body" class="invisible">
+        
+            <!-- Header -->
+            <div w3-include-html="/src/includes/navBar.html"></div>
+    
+            <main class="d-flex flex-column">
+
+                <div class="row g-0">
+
+                    <div class="col-lg-6 container mt-4 px-5">
+    
+                        <div class="m-3">
+                            <h2 class="title fw-bold en" style="letter-spacing: .25rem;">WELCOME BACK!</h2>
+                            <small style="letter-spacing: .1rem;">Don’t have a account? <a href="#" class="text-danger">Sign up</a></small>
+                        </div>
+        
+                        <form action="./login.html" onsubmit="login(this)" class="m-3" target="hiddenFrame">
+        
+                            <div class="row g-0 align-items-center mb-4 mt-5">
+                                <label for="username" class="form-label en fw-light" style="letter-spacing: .1rem;">Username</label>
+                                <div class="input-group col-autoen">
+                                    <input type="text" name="username" id="username" placeholder="formosatto@gmail.com">
+                                </div>
+                            </div>
+            
+                            <div class="row g-0 align-items-center mb-4">
+                                <label for="password" class="form-label en fw-light" style="letter-spacing: .1rem;">Password</label>
+                                <div class="input-group col-auto">
+                                    <input type="password" name="password" id="password">
+                                </div>
+                                <div class="col-auto">
+                                    <span id="passwordHelpInline" class="form-text">
+                                      Must be at least 8 characters long and contains a letter, a number and a special letter.
+                                    </span>
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col mb-4 form-checkd-inline-block">
+                                    <input type="checkbox" class="form-check-input" id="loginCheckBox">
+                                    <label class="form-check-label en pt-2" for="loginCheckBox" style="letter-spacing: .1rem;">Remember me</label>
+                                </div>
+                                <div class="col mb-4 form-check d-inline-block mt-2 text-end">
+                                    <a href="#" class="en text-danger" style="letter-spacing: .1rem;">Forget password?</a>
+                                </div>
+                            </div>
+        
+                            <button type="submit" class="btn form-btn en" style="letter-spacing: .1rem;">Sign In</button>
+                    
+                        </form>
+
+                        <iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
+    
+                    </div>
+
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <img src="/src/img/formosatto.png" class="img-fluid" alt="formosatto">
+                    </div>
+
+                </div>
+                
+
+            </main>
+            
+            <!-- Footer -->
+            <footer w3-include-html="/src/includes/footer.html"></footer>
+        </div>
+
+    </body>
+            
+</html>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/showMethods.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script>
+
+    new Load();
+    
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/font/css/font-awesome.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/main.css">
+	<title>課程列表</title>
+</head>
+<html lang="zh-tw">
+
+	<div id="load" w3-include-html="/src/includes/loading.html"></div>
+	<div id="body" class="invisible">
+		
+		<!-- Header -->
+		<div w3-include-html="/src/includes/navBar.html"></div>
+	
+		<body>
+	
+			<div class="d-flex h-75 m-2">
+				<div class="container">
+					<div class='row g-0 pt-5'>
+						<div class='col text-start'>
+							<h3>課程列表</h3>
+							<p class='lead'>與福衛子妹妹一起學習吧</p>
+						</div>
+					</div>
+					<div class="d-flex min-vh-100">
+						<section id="courses" class="mb-auto mt-5 p-4 mb-5">
+							<div  id="course-list-div"></div>
+						</section>
+					</div>
+				</div>
+			</div>
+	
+		</body>
+	
+		<!-- Footer -->
+		<footer w3-include-html="/src/includes/footer.html" class="mt-5"></footer>
+
+	</div>
+
+</html>
+
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/showMethods.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
+<script>
+	new Load(() => {
+		conn('/courses/')
+		.then( res => {
+			showCourseList(res.data);
+		})
+	});
+</script>

@@ -1,7 +1,3 @@
-function wait(ms) {
-    return new Promise(r => setTimeout(r, ms));
-}
-
 class DB {
 
     constructor(name){
@@ -13,7 +9,6 @@ class DB {
     async query() {
         try{
             const response = await fetch(this.url);
-            await wait(2480);
             const json = await response.json();
             return json;
         }catch (err) {

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <head>
-	<div w3-include-html="src/includes/head.html"></div>
+	<div w3-include-html="/src/includes/head.html"></div>
 	<title>課程列表</title>
 </head>
-<html>
+<html lang="zh-tw">
     <!-- Header -->
-	<div w3-include-html="src/includes/navBar.html"></div>
+	<div w3-include-html="/src/includes/navBar.html"></div>
 
     <body>
 
@@ -22,7 +22,7 @@
 				</div>
 				<div class="d-flex min-vh-100">
 					<section id="courses" class="mb-auto mt-5 p-4 mb-5">
-						<div w3-include-html="src/includes/latest.html"></div>
+						<div  id="course-list-div"></div>
 					</section>
 				</div>
 			</div>
@@ -31,15 +31,20 @@
     </body>
 
     <!-- Footer -->
-    <footer w3-include-html="src/includes/footer.html" class="mt-5"></footer>
+    <footer w3-include-html="/src/includes/footer.html" class="mt-5"></footer>
 
 </html>
 
 <script src="https://www.w3schools.com/lib/w3.js"></script>
+<script src="/js/conn.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/showMethods.js"></script>
 <script src="/js/bootstrap/bootstrap.bundle.min.js"></script>
-<script src="js/db.js"></script>
 <script>
 
-	w3.includeHTML();
+	conn('https://formosatto.herokuapp.com/courses/')
+	.then( res => {
+		showCourseList(res.data);
+	})
 
 </script>
