@@ -2,20 +2,6 @@ function load_sidebar() {
 
     const body = document.getElementById('iron-body');
     const sidebar = document.getElementById('sidebar');
-    const hint = document.createElement('i');
-    hint.classList.add("fa");
-    hint.classList.add("fa-arrow-right");
-    hint.classList.add("fa-5x");
-    hint.classList.add("media");
-    hint.classList.add("blink");
-    hint.style = `
-        padding: 1rem;
-        position: fixed;
-        left: 0;
-        top: 80px;
-        color: #55BCA6;
-    `
-    body.appendChild(hint);
 
     let startX = 0;
     let endX = 0;
@@ -42,4 +28,22 @@ function load_sidebar() {
         }
     }
 
+}
+
+function load_hint(){
+    const body = document.getElementById('iron-body');
+    const hint = document.createElement('i');
+    hint.classList.add("fa");
+    hint.classList.add("fa-arrow-right");
+    hint.classList.add("fa-5x");
+    hint.classList.add("media");
+    hint.classList.add("blink");
+    hint.style = `
+        padding: 1rem;
+        position: fixed;
+        left: 0;
+        top: 80px;
+        color: #55BCA6;
+    `
+    body.appendChild(hint);
 }

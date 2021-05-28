@@ -59,6 +59,14 @@ a, a:hover, a:visited, a:active {
     height: 250px;
 }
 
+.ck-editor{
+    min-height: 250px;
+}
+
+.ck-editor .ck-editor__editable{
+    min-height: 250px;
+}
+
 .btn {
     background-color: #55BCA6;
 }

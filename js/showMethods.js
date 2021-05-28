@@ -92,7 +92,37 @@ function showCourseList(courseList) {
     </div>
     `;
 }
+function showPostList(posts){
+    const row = document.getElementById('post-list');
+        
+    posts.forEach( e => {
+        let card = document.createElement('div')
+        card.classList.add("col-auto");
 
+        let content = '';
+        if (e['content'].length > 100){
+            content = e['content'].slice(0,100);
+            content += ' . . . . . .';
+        }else{
+            content = e['content'];
+        }
+
+        card.innerHTML = `
+            <div class="card h-100">
+                <div class="card-body h-100"">
+                    <h5 class="card-title border-bottom p-2">${e['title']}</h5>
+                    <div class="card-text" style="height: 80px;">${content}</div>
+                    <a href="/spaceiron/posts?id=${e['id']}" class="card-link text-primary">Read more</a>
+                </div>
+                <div class="card-footer">
+                    <i class="fa fa-clock-o"></i>
+                    ${e['post_time'].slice(0,10)}
+                </div>
+            </div>
+        `
+        row.appendChild(card);
+    });
+}
 function popMsg(msg){
 
     const toastContainer = document.getElementById('toast');
