@@ -36,7 +36,7 @@
                     發燒文章
                 </h2>
     
-                <div class="row g-3 justify-content-center" id="post"> </div>
+                <div class="row g-3 justify-content-center" id="post-list"> </div>
             </main>
     
     
@@ -70,35 +70,7 @@
     })
 
     function load(data){
-        const row = document.getElementById('post');
-        
-        data.forEach( e => {
-            let card = document.createElement('div')
-            card.classList.add("col-auto");
-
-            let content = '';
-            if (e['content'].length > 100){
-                content = e['content'].slice(0,100);
-                content += ' . . . . . .';
-            }else{
-                content = e['content'];
-            }
-
-            card.innerHTML = `
-                <div class="card h-100">
-                    <div class="card-body h-100"">
-                        <h5 class="card-title border-bottom p-2">${e['title']}</h5>
-                        <p class="card-text" style="height: 80px;">${content}</p>
-                        <a href="/spaceiron/posts?id=${e['id']}" class="card-link text-primary">Read more</a>
-                    </div>
-                    <div class="card-footer">
-                        <i class="fa fa-clock-o"></i>
-                        ${e['post_time'].slice(0,10)}
-                    </div>
-                </div>
-            `
-            row.appendChild(card);
-        });
+        showPostList(data);
     }
 
 </script>

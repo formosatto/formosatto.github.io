@@ -18,14 +18,36 @@ async function conn(url, headers={}){
     }
 }
 
-async function send(url, body){
+async function send(url, body, headers={'Content-Type': 'application/x-www-form-urlencoded'}){
     try{
         url = 'https://formosatto.herokuapp.com' + url;
         const response = await fetch(url, {
             method: "POST", 
             body: new URLSearchParams(body),
+            headers: headers
+        });
+
+        // if (!response.ok) console.clear();
+
+        return {
+            'status': response.status,
+            'data': await response.json()
+        };
+    }
+    catch (err) {
+        console.log('fetch failed', err);
+    }
+}
+
+async function sendPost(url, body){
+    try{
+        url = 'https://formosatto.herokuapp.com' + url;
+        const response = await fetch(url, {
+            method: "POST", 
+            body: JSON.stringify(body),
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'app/json',
+                'Authorization': 'Bearer ' + getCookie('access_token') 
             }
         });
 
